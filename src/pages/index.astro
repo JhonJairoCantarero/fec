@@ -1,0 +1,29 @@
+---
+import Layout from '../layouts/Layout.astro';
+import HeroCarousel from '../components/islands/HeroCarousel';
+import BrandsCarousel from '../components/islands/BrandsCarousel';
+import TruckAnimation from '../components/islands/TruckAnimation';
+import Productos from '../components/islands/Productos';
+import Servicios from '../components/islands/Servicios';
+import SobreNosotros from '../components/islands/SobreNosotros';
+import Ubicaciones from '../components/islands/Ubicaciones';
+import Contacto from '../components/islands/Contacto';
+---
+
+<Layout title="Ferretería El Carmen - Tu Ferretería de Confianza">
+	<div class="relative">
+		<HeroCarousel client:load />
+
+		<!-- Animación del camión y texto de marcas -->
+		<TruckAnimation client:load />
+
+		<BrandsCarousel client:visible />
+	</div>
+
+	<Productos client:visible />
+	<Servicios client:visible />
+	<SobreNosotros client:visible />
+	<Ubicaciones client:visible />
+	<Contacto client:load />
+</Layout>
+
