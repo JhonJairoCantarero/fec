@@ -45,9 +45,8 @@ export default function HeroCarousel() {
       if (currentIndex < fullText.length) {
         setTypedText(fullText.slice(0, currentIndex + 1));
         currentIndex++;
-        timeoutId = setTimeout(typeText, 100); // Velocidad de escritura
+        timeoutId = setTimeout(typeText, 100);
       } else {
-        // Reiniciar después de 3 segundos
         setTimeout(() => {
           setTypedText('');
           currentIndex = 0;
@@ -61,7 +60,7 @@ export default function HeroCarousel() {
     return () => {
       if (timeoutId) clearTimeout(timeoutId);
     };
-  }, []); // Solo al montar el componente
+  }, []);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);
@@ -94,18 +93,15 @@ export default function HeroCarousel() {
                 : 'opacity-0 scale-105'
             }`}
           >
-            {/* Background Image */}
             <div className="absolute inset-0">
               <img
                 src={slide.image}
                 alt={slide.title}
                 className="w-full h-full object-cover"
               />
-              {/* Overlay elegante */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#007AFF]/30 via-[#0051D5]/20 to-[#007AFF]/30"></div>
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-900/50 via-blue-800/30 to-blue-900/50"></div>
             </div>
 
-            {/* Content */}
             <div className="relative z-10 h-full flex items-center justify-center">
               <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full text-center">
                 <div
@@ -122,15 +118,14 @@ export default function HeroCarousel() {
                     {slide.subtitle}
                   </p>
 
-                    {/* Botones CTA */}
                   <div className="flex flex-col gap-4 items-center justify-center">
                     <div className="flex flex-col sm:flex-row gap-4">
                       <a
-                        href="#productos"
+                        href="/productos"
                         className="group relative px-8 py-4 bg-white text-gray-900 font-semibold rounded-xl shadow-2xl hover:shadow-white/20 transform hover:scale-105 transition-all duration-300 text-lg overflow-hidden text-center"
                       >
                         <span className="relative z-10">Ver Productos</span>
-                        <div className="absolute inset-0 bg-gradient-to-r from-[#007AFF] to-[#0051D5] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+                        <div className="absolute inset-0 bg-gradient-to-r from-[#4A5D23] to-[#6C7F3B] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
                         <span className="absolute inset-0 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity font-semibold">
                           Ver Productos
                         </span>
@@ -143,35 +138,21 @@ export default function HeroCarousel() {
                       </a>
                     </div>
 
-                    {/* Botón de video en miniatura con texto de escritura - Todo clickeable */}
                     <button
-                      onClick={() => {
-                        setShowVideo(true);
-                      }}
+                      onClick={() => setShowVideo(true)}
                       className="group flex items-center gap-3 mt-4 cursor-pointer hover:opacity-90 transition-opacity"
-                      style={{ pointerEvents: 'auto' }}
                       aria-label="Ver video"
                       type="button"
                     >
-                      {/* Botón de video en miniatura */}
-                      <div className="relative flex items-center justify-center pointer-events-none">
-                        {/* Círculo verde pequeño con efecto de palpitación */}
+                      <div className="relative flex items-center justify-center">
                         <div className="absolute w-12 h-12 bg-green-600 rounded-full animate-ping opacity-75"></div>
-                        <div 
-                          className="relative w-12 h-12 bg-green-600 rounded-full flex items-center justify-center shadow-xl group-hover:bg-green-700 transition-all duration-300 transform group-hover:scale-110"
-                          style={{
-                            animation: 'rotate 3s linear infinite'
-                          }}
-                        >
-                          {/* Ícono de play pequeño */}
+                        <div className="relative w-12 h-12 bg-green-600 rounded-full flex items-center justify-center shadow-xl group-hover:bg-green-700 transition-all duration-300 group-hover:scale-110">
                           <svg className="w-6 h-6 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M8 5v14l11-7z"/>
                           </svg>
                         </div>
                       </div>
-
-                      {/* Texto con efecto de escritura */}
-                      <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-gray-900 text-sm font-semibold rounded-lg shadow-xl pointer-events-none">
+                      <span className="px-4 py-2 bg-white/90 backdrop-blur-sm text-gray-900 text-sm font-semibold rounded-lg shadow-xl">
                         {typedText || 'Conócenos en 100 segundos'}
                         {typedText.length < fullText.length && typedText.length > 0 && (
                           <span className="animate-pulse">|</span>
@@ -192,18 +173,8 @@ export default function HeroCarousel() {
         className="absolute left-4 sm:left-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-2xl group"
         aria-label="Previous slide"
       >
-        <svg
-          className="w-6 h-6 transform group-hover:scale-110 transition-transform"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2.5}
-            d="M15 19l-7-7 7-7"
-          />
+        <svg className="w-6 h-6 transform group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
 
@@ -212,18 +183,8 @@ export default function HeroCarousel() {
         className="absolute right-4 sm:right-8 top-1/2 -translate-y-1/2 z-20 w-14 h-14 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-2xl group"
         aria-label="Next slide"
       >
-        <svg
-          className="w-6 h-6 transform group-hover:scale-110 transition-transform"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2.5}
-            d="M9 5l7 7-7 7"
-          />
+        <svg className="w-6 h-6 transform group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
         </svg>
       </button>
 
@@ -245,37 +206,26 @@ export default function HeroCarousel() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-24 left-1/2 -translate-x-1/2 animate-bounce z-20">
-        <svg
-          className="w-8 h-8 text-white drop-shadow-lg"
-          fill="none"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          strokeWidth="2"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
+        <svg className="w-8 h-8 text-white drop-shadow-lg" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
           <path d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
         </svg>
       </div>
 
-      {/* Video Modal - Pantalla Completa */}
+      {/* Video Modal */}
       {showVideo && (
         <div
           className="fixed inset-0 z-50 bg-black"
           onClick={() => setShowVideo(false)}
         >
-          {/* Close button */}
           <button
             onClick={() => setShowVideo(false)}
-            className="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-2xl group"
+            className="absolute top-4 right-4 z-10 w-12 h-12 rounded-full bg-white/20 backdrop-blur-md border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-gray-900 transition-all duration-300 shadow-2xl"
             aria-label="Cerrar video"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
-
-          {/* Video en pantalla completa */}
           <video
             className="w-full h-full object-contain"
             controls
@@ -287,19 +237,6 @@ export default function HeroCarousel() {
           </video>
         </div>
       )}
-
-      {/* Estilos para la animación de rotación */}
-      <style>{`
-        @keyframes rotate {
-          from {
-            transform: rotate(0deg);
-          }
-          to {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </section>
   );
 }
-

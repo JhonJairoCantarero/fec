@@ -14,6 +14,7 @@
     "@astrojs/tailwind": "^5.1.0",
     "@supabase/supabase-js": "^2.89.0",
     "astro": "^4.0.0",
+    "gsap": "^3.14.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },

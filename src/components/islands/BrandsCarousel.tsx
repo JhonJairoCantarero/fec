@@ -81,16 +81,16 @@ export default function BrandsCarousel() {
   }, []);
 
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 to-white overflow-hidden">
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-950 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className={`text-center mb-12 transition-all duration-500 ${
           hideTitle ? 'opacity-0 h-0 mb-0 overflow-hidden' : 'opacity-100'
         }`}>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
             Marcas de Confianza
           </h2>
-          <p className="text-lg text-gray-600 font-medium">
+          <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">
             Trabajamos con las mejores marcas del mercado
           </p>
         </div>
@@ -98,8 +98,8 @@ export default function BrandsCarousel() {
         {/* Carousel Container */}
         <div className="relative">
           {/* Gradient Overlays */}
-          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white dark:from-gray-950 to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white dark:from-gray-950 to-transparent z-10 pointer-events-none"></div>
 
           {/* Scrolling Container */}
           <div
@@ -110,7 +110,7 @@ export default function BrandsCarousel() {
             {duplicatedBrands.map((brand, index) => (
               <div
                 key={index}
-                className="flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 flex items-center justify-center group hover:scale-105 border border-gray-100"
+                className="flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 bg-white dark:bg-gray-800 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 p-6 flex items-center justify-center group hover:scale-105 border border-gray-100 dark:border-gray-700"
               >
                 <img
                   src={brand}
@@ -124,9 +124,9 @@ export default function BrandsCarousel() {
 
         {/* Decorative Elements */}
         <div className="mt-12 flex justify-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-[#007AFF] animate-pulse"></div>
-          <div className="w-2 h-2 rounded-full bg-[#007AFF] animate-pulse delay-75"></div>
-          <div className="w-2 h-2 rounded-full bg-[#007AFF] animate-pulse delay-150"></div>
+          <div className="w-2 h-2 rounded-full bg-[#4A5D23] animate-pulse"></div>
+          <div className="w-2 h-2 rounded-full bg-[#4A5D23] animate-pulse delay-75"></div>
+          <div className="w-2 h-2 rounded-full bg-[#4A5D23] animate-pulse delay-150"></div>
         </div>
       </div>
     </section>
